@@ -21,9 +21,9 @@ export class PublisherComponent implements AfterViewInit {
     this.publishing = false;
   }
 
-  // ngOnInit() {
-  //   this.initializeSession();
-  // }
+  ngOnInit() {
+    this.initializeSession();
+  }
 
   // Handling all of our errors here by alerting them
   handleError(error) {
