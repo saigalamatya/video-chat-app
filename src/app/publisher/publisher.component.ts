@@ -43,7 +43,7 @@ export class PublisherComponent implements AfterViewInit {
       height: '500px'
     });
 
-    this.sendSession.emit(this.session);
+    // this.sendSession.emit(this.session);
 
     // Connect to the session
     this.session.connect(config.TOKEN, (error) => {

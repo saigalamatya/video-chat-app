@@ -21,39 +21,39 @@ export class SubscriberComponent implements AfterViewInit, OnChanges {
   }
 
   ngAfterViewInit() {
-    // const subscriber = this.session.subscribe(this.stream, this.subscriberDiv.nativeElement, {}, (err) => {
-    //   if (err) {
-    //     alert(err.message);
-    //   }
-    // });
-    // this.session.on('streamCreated', function (event) {
-    //   this.session.subscribe(event.stream, 'subscriber', {
-    // insertMode: 'append',
-    // width: '100%',
-    // height: '100%'
-    //   });
-    // });
+    const subscriber = this.session.subscribe(this.stream, this.subscriberDiv.nativeElement, {}, (err) => {
+      if (err) {
+        alert(err.message);
+      }
+    });
+    this.session.on('streamCreated', function (event) {
+      this.session.subscribe(event.stream, 'subscriber', {
+        insertMode: 'append',
+        width: '100%',
+        height: '100%'
+      });
+    });
   }
 
   ngOnInit() {
-    this.session.subscribe(this.stream, this.subscriberDiv.nativeElement);
+    // this.session.subscribe(this.stream, this.subscriberDiv.nativeElement);
 
-    if (this.session) {
-      this.session.on('streamCreated', function (event) {
-        this.session.subscribe(event.stream, 'subscriber', {
-          insertMode: 'append',
-          width: '100%',
-          height: '100%'
-        });
-      });
+    // if (this.session) {
+    //   this.session.on('streamCreated', function (event) {
+    //     this.session.subscribe(event.stream, 'subscriber', {
+    //       insertMode: 'append',
+    //       width: '100%',
+    //       height: '100%'
+    //     });
+    //   });
 
-      // Replace with your API key and token:
-      this.session.connect(config.TOKEN, function (error) {
-        if (error) {
-          // failed to connect
-        }
-      });
-    }
+    //   // Replace with your API key and token:
+    //   this.session.connect(config.TOKEN, function (error) {
+    //     if (error) {
+    //       // failed to connect
+    //     }
+    //   });
+    // }
   }
 
   disconnect() {
